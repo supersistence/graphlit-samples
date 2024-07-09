@@ -2,6 +2,15 @@ import streamlit as st
 from components import header, sidebar, session_state
 from streamlit_extras.stylable_container import stylable_container
 from graphlit import Graphlit
+import json
+
+def load_config():
+    with open('config.json', 'r') as config_file:
+        config = json.load(config_file)
+    return config
+
+# Load the configuration
+config = load_config()
 
 st.set_page_config(
     page_title="Graphlit Demo Application",
@@ -21,9 +30,10 @@ with col1:
 
         st.info("Locate connection information for your project in the [Graphlit Developer Portal](https://portal.graphlit.dev/)")
 
-        st.text_input("Organization ID", value=st.session_state['organization_id'], key="organization_id", type="password")
-        st.text_input("Preview Environment ID", value=st.session_state['environment_id'], key="environment_id", type="password")
-        st.text_input("Secret", value=st.session_state['jwt_secret'], key="jwt_secret", type="password")
+        # Pre-fill the form with values from the config file
+        st.text_input("Organization ID", value=config.get('organization_id', ''), key="organization_id", type="password")
+        st.text_input("Preview Environment ID", value=config.get('environment_id', ''), key="environment_id", type="password")
+        st.text_input("Secret", value=config.get('jwt_secret', ''), key="jwt_secret", type="password")
 
         submit_credentials = st.form_submit_button("Generate Token")
 
