@@ -130,3 +130,6 @@ dmypy.json
 
 # Jupyter
 .jupyter
+
+# Config file for storing secrets
+config.json
