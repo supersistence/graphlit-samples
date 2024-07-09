@@ -5,7 +5,10 @@ from graphlit import Graphlit
 import json
 
 def load_config():
-    with open('config.json', 'r') as config_file:
+    # Construct the full path to the config file
+    config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'python/streamlit-multipage-chat-files-citations/config.json')
+    
+    with open(config_path, 'r') as config_file:
         config = json.load(config_file)
     return config
 
