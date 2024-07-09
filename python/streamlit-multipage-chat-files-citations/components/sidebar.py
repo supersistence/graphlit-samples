@@ -3,10 +3,9 @@ import streamlit as st
 def create_sidebar():
     with st.sidebar:
         st.info("""
-                ### ✅ Demo Instructions
-                - [Sign up for Graphlit](https://docs.graphlit.dev/getting-started/signup) 🆓  
+                ### ✅ Instructions
                 - **Step 1:** Generate Graphlit project token.
-                - **Step 2:** Browse for files to upload and ingest.
+                - **Step 2:** Browse for files to upload and ingest. Or review the [already loaded documents and datasets](https://www.zotero.org/groups/5591103/hi_farm_studies/library).
                 - **Step 3:** Enter a prompt to ask about the files using [Anthropic](https://www.anthropic.com) Claude 3 Haiku LLM.
                 """)
 
