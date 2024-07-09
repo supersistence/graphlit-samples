@@ -9,7 +9,7 @@ sidebar.create_sidebar()
 header.create_header()
 
 if st.session_state['token'] is None:
-    st.info("💡 To get started, generate a token to connect to your Graphlit project.")
+    st.info("💡 To get started, start a session to connect to project database.")
 else:
     col1, col2 = st.columns(2)
 
