@@ -3,10 +3,11 @@ from components import header, sidebar, session_state
 from streamlit_extras.stylable_container import stylable_container
 from graphlit import Graphlit
 import json
+import os
 
 def load_config():
     # Construct the full path to the config file
-    config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'python/streamlit-multipage-chat-files-citations/config.json')
+    config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../config.json')
     
     with open(config_path, 'r') as config_file:
         config = json.load(config_file)
