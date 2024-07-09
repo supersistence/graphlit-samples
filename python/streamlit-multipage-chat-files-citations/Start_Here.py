@@ -34,6 +34,31 @@ session_state.reset_session_state()
 sidebar.create_sidebar()
 header.create_header()
 
+# Inject custom CSS and JavaScript to hide the "eye" icon
+hide_eye_icon = """
+    <style>
+        .stTextInput [data-baseweb="input"] {
+            display: none;
+        }
+    </style>
+    <script>
+        // Find all password fields and remove the toggle visibility button
+        const observer = new MutationObserver(() => {
+            const inputFields = document.querySelectorAll('[type="password"]');
+            inputFields.forEach(field => {
+                const parent = field.parentElement;
+                const toggleButton = parent.querySelector('[data-baseweb="input"]');
+                if (toggleButton) {
+                    toggleButton.style.display = 'none';
+                }
+            });
+        });
+        observer.observe(document, { childList: true, subtree: true });
+    </script>
+"""
+
+st.markdown(hide_eye_icon, unsafe_allow_html=True)
+
 col1, col2 = st.columns(2)
 
 with col1:
