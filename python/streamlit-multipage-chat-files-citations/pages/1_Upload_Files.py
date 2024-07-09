@@ -43,34 +43,7 @@ else:
                     st.switch_page("pages/2_Chat_With_Files.py")
 
     with col2:
-        st.markdown("**Python SDK code example:**")
+        st.markdown("**Zotero Library:**")
         
-        with stylable_container(
-            "codeblock",
-            """
-            code {
-                white-space: pre-wrap !important;
-                overflow-x: auto;
-                width: 100%;
-                font-size: 12px;
-            }
-            """,
-        ):
-            st.code(language="python", body="""
-                    from graphlit import Graphlit
-                    from graphlit_api import *
-
-                    # NOTE: Ingest Base64 encoded file, synchronously.
-                    # Using `workflow-id` for text extraction.
-                                        
-                    response = await graphlit.client.ingest_encoded_file(
-                        "{name}", 
-                        "{base64-data}", 
-                        "{mime_type}", 
-                        is_synchronous=True, 
-                        workflow=EntityReferenceInput(
-                            id="{workflow-id}"
-                        )
-                    )
-
-                    """)
+        # Embed Zotero library using iframe
+        st.components.v1.iframe("https://www.zotero.org/groups/5591103/hi_farm_studies/library", height=600, scrolling=True)
