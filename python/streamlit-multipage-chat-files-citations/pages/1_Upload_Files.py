@@ -45,5 +45,5 @@ else:
     with col2:
         st.markdown("**Zotero Library:**")
         
-        # Embed Zotero library using iframe
-        st.components.v1.iframe("https://www.zotero.org/groups/5591103/hi_farm_studies/library", height=600, scrolling=True)
+        # Share Zotero library 
+        st.markdown('[Access the Zotero library here](https://www.zotero.org/groups/5591103/hi_farm_studies/library) to review the already uploaded files.')
