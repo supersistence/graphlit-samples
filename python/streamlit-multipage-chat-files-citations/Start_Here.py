@@ -34,9 +34,15 @@ session_state.reset_session_state()
 sidebar.create_sidebar()
 header.create_header()
 
-# Inject custom CSS and JavaScript to hide the "eye" icon
-hide_eye_icon = """
+# Inject custom CSS and JavaScript to hide the "eye" icon and specific elements
+hide_elements = """
     <style>
+        .stTextInput label {
+            display: none;
+        }
+        .stInfo {
+            display: none;
+        }
         .stTextInput [data-baseweb="input"] {
             display: none;
         }
@@ -57,7 +63,7 @@ hide_eye_icon = """
     </script>
 """
 
-st.markdown(hide_eye_icon, unsafe_allow_html=True)
+st.markdown(hide_elements, unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
