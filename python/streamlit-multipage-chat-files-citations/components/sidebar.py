@@ -4,7 +4,7 @@ def create_sidebar():
     with st.sidebar:
         st.info("""
                 ### ✅ Instructions
-                - **Step 1:** Generate Graphlit project token.
+                - **Step 1:** Start a session.
                 - **Step 2:** Browse for files to upload and ingest.
                 - **Step 3:** Enter a prompt to ask about the files using [Anthropic](https://www.anthropic.com) Claude 3 Haiku LLM.
                 """)
