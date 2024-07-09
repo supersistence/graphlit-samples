@@ -71,14 +71,14 @@ with col1:
     with st.form("credentials_form"):
         st.markdown("### 💡 Start here:")
 
-        st.info("Locate connection information for your project in the [Graphlit Developer Portal](https://portal.graphlit.dev/)")
+        st.info("Cick the button below to start a session")
 
         # Use session state values directly without setting the value parameter
         st.text_input("Organization ID", key="organization_id", type="password")
         st.text_input("Preview Environment ID", key="environment_id", type="password")
         st.text_input("Secret", key="jwt_secret", type="password")
 
-        submit_credentials = st.form_submit_button("Generate Token")
+        submit_credentials = st.form_submit_button("Start a sesson")
 
         if submit_credentials:
             if st.session_state['jwt_secret'] and st.session_state['environment_id'] and st.session_state['organization_id']:
