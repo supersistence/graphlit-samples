@@ -25,7 +25,7 @@ else:
         with st.chat_message("user"):
             st.markdown(user_prompt)
         
-        message, citations, graph, error_message = helpers.run_async_task(prompt.handle_prompt, user_prompt)
+        message, citations, error_message = helpers.run_async_task(prompt.handle_prompt, user_prompt)
 
         if error_message is not None:
             st.error(f"Failed to prompt conversation. {error_message}")
