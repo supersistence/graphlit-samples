@@ -38,8 +38,8 @@ else:
                 st.markdown(message)
 
                 # render citations
-                        if citations is not None:
-                            helpers.render_citations(citations)
+                if citations is not None:
+                    helpers.render_citations(citations)
 
                 # render retrieved graph
                 if graph is not None:
