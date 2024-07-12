@@ -11,7 +11,7 @@ header.create_header()
 if st.session_state['token'] is None:
     st.info("💡 To get started, start a session to connect to project database.")
 else:
-    col1, col2 = st.columns(2)
+    col1 = st.columns(1)
 
     with col1:
         if st.session_state['content_done'] == True:
@@ -48,33 +48,7 @@ else:
         else:
             st.info("Please ingest files to chat with.")   
 
-    with col2:
-        st.markdown("**Python SDK code example:**")
-        
-        with stylable_container(
-            "codeblock",
-            """
-            code {
-                white-space: pre-wrap !important;
-                overflow-x: auto;
-                width: 100%;
-                font-size: 12px;
-            }
-            """,
-        ):
-            st.code(language="python", body="""
-                    from graphlit import Graphlit
-                    from graphlit_api import *
-
-                    # NOTE: Using LLM via `specification-id`
-                    
-                    input = ConversationInput(
-                        name="Conversation",
-                        specification=EntityReferenceInput(
-                            id="{specification-id}"
-                        )
-                    )
-
+    
                     response = await graphlit.client.create_conversation(input)
 
                     """)
