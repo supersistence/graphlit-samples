@@ -47,8 +47,3 @@ else:
                             helpers.render_citations(citations)
         else:
             st.info("Please ingest files to chat with.")   
-
-    
-                    response = await graphlit.client.create_conversation(input)
-
-                    """)
