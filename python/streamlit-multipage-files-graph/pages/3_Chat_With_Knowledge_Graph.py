@@ -37,10 +37,6 @@ else:
                 # render assistant message
                 st.markdown(message)
 
-                # render citations
-                if citations is not None:
-                    helpers.render_citations(citations)
-
                 # render retrieved graph
                 if graph is not None:
                     g = graph_helpers.create_pyvis_conversation_graph(graph)
@@ -48,8 +44,8 @@ else:
                     graph_helpers.display_pyvis_graph(g)
 
                     # NOTE: uncomment to show the raw JSON for the graph
-                    #json = graph.model_dump_json(indent=2)
-                    #st.json(json)                
+                    json = graph.model_dump_json(indent=2)
+                    st.json(json)                
 
     with st.form("data_feed_form"):    
         clear_conversation = st.form_submit_button("Clear RAG conversation")
