@@ -37,6 +37,10 @@ else:
                 # render assistant message
                 st.markdown(message)
 
+                # render citations
+                        if citations is not None:
+                            helpers.render_citations(citations)
+
                 # render retrieved graph
                 if graph is not None:
                     g = graph_helpers.create_pyvis_conversation_graph(graph)
