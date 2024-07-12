@@ -25,7 +25,7 @@ else:
         with st.chat_message("user"):
             st.markdown(user_prompt)
         
-        message, graph, error_message = helpers.run_async_task(prompt.handle_prompt, user_prompt)
+        message, graph, citations, error_message = helpers.run_async_task(prompt.handle_prompt, user_prompt)
 
         if error_message is not None:
             st.error(f"Failed to prompt conversation. {error_message}")
@@ -44,8 +44,12 @@ else:
                     graph_helpers.display_pyvis_graph(g)
 
                     # NOTE: uncomment to show the raw JSON for the graph
-                    json = graph.model_dump_json(indent=2)
-                    st.json(json)                
+                    #json = graph.model_dump_json(indent=2)
+                    #st.json(json)   
+
+                # render citations
+                if citations is not None:
+                    helpers.render_citations(citations)
 
     with st.form("data_feed_form"):    
         clear_conversation = st.form_submit_button("Clear RAG conversation")
