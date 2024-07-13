@@ -98,7 +98,7 @@ with col2:
     st.markdown("**Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
     st.image(
             "https://images.squarespace-cdn.com/content/v1/5e3885654a153a6ef84e6c9c/1653003266864-VIGG314YMEN3YTAZDR93/SUPERSISTENCE%2Blogo.jpg",
-            width=400, # Manually Adjust the width of the image as per requirement
+            width=150, # Manually Adjust the width of the image as per requirement
         )
 
  
