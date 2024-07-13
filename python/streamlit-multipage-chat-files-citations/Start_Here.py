@@ -78,7 +78,7 @@ with col1:
         st.text_input("Preview Environment ID", key="environment_id", type="password")
         st.text_input("Secret", key="jwt_secret", type="password")
 
-        submit_credentials = st.form_submit_button("Start a sesson")
+        submit_credentials = st.form_submit_button("Start a Chat Sesson")
 
         if submit_credentials:
             if st.session_state['jwt_secret'] and st.session_state['environment_id'] and st.session_state['organization_id']:
