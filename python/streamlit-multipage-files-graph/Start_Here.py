@@ -65,7 +65,7 @@ hide_elements = """
 
 st.markdown(hide_elements, unsafe_allow_html=True)
 
-col1, col2 = st.columns(2)
+col1 = st.columns(1)
 
 with col1:
     with st.form("credentials_form"):
@@ -93,25 +93,3 @@ with col1:
                 st.error("Please fill in all the connection information.")
 
             st.markdown("**Python SDK code example:**")
-
-with col2:        
-    st.markdown("**Python SDK code example:**")
-
-    with stylable_container(
-        "codeblock",
-        """
-        code {
-            white-space: pre-wrap !important;
-        }
-        """,
-    ):
-        st.code(language="python", body="""
-                from graphlit import Graphlit
-
-                graphlit = Graphlit(
-                    organization_id="{organization-id}", 
-                    environment_id="{environment-id}", 
-                    jwt_secret="{jwt-secret}"
-                )
-
-                """)
