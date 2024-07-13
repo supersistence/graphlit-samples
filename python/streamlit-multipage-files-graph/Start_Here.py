@@ -65,20 +65,20 @@ hide_elements = """
 
 st.markdown(hide_elements, unsafe_allow_html=True)
 
-col1 = st.columns(1)
+col1 = st.columns(1)[0]
 
 with col1:
     with st.form("credentials_form"):
         st.markdown("### 💡 Start here:")
 
-        st.info("Cick the button below to start a session")
+        st.info("Click the button below to start a session")
 
         # Use session state values directly without setting the value parameter
         st.text_input("Organization ID", key="organization_id", type="password")
         st.text_input("Preview Environment ID", key="environment_id", type="password")
         st.text_input("Secret", key="jwt_secret", type="password")
 
-        submit_credentials = st.form_submit_button("Start a sesson")
+        submit_credentials = st.form_submit_button("Start a session")
 
         if submit_credentials:
             if st.session_state['jwt_secret'] and st.session_state['environment_id'] and st.session_state['organization_id']:
@@ -88,7 +88,7 @@ with col1:
                 st.session_state['graphlit'] = graphlit
                 st.session_state['token'] = graphlit.token
 
-                st.switch_page("pages/1_Upload_Files.py")
+                st.experimental_rerun()
             else:
                 st.error("Please fill in all the connection information.")
 
