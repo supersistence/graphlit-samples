@@ -4,9 +4,9 @@ def create_sidebar():
     with st.sidebar:
         st.info("""
                 ### ✅ Instructions
-                - **Step 1:** Start a session.
-                - **Step 2:** Browse for files to upload and ingest.
-                - **Step 3:** Enter a prompt to ask about the files using [Anthropic](https://www.anthropic.com) Claude 3 Haiku LLM.
+                - **Step 1:** Start a chat session.
+                - **Step 2:** Enter a prompt to ask about the files using [Anthropic](https://www.anthropic.com) Claude 3 Haiku LLM.
+                - **Step 3:** Browse existing files or select other files to upload and ingest.
                 """)
 
         st.markdown("""
