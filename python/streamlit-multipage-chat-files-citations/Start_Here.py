@@ -69,7 +69,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     with st.form("credentials_form"):
-        st.markdown("### 💡 Start here:")
+        st.markdown("### 💡 Start a chat with recent documents and data about Hawaii agriculture here:")
 
         st.info("Cick the button below to start a session")
 
@@ -95,23 +95,6 @@ with col1:
             st.markdown("**Python SDK code example:**")
 
 with col2:        
-    st.markdown("**Python SDK code example:**")
+    st.markdown("**Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
 
-    with stylable_container(
-        "codeblock",
-        """
-        code {
-            white-space: pre-wrap !important;
-        }
-        """,
-    ):
-        st.code(language="python", body="""
-                from graphlit import Graphlit
-
-                graphlit = Graphlit(
-                    organization_id="{organization-id}", 
-                    environment_id="{environment-id}", 
-                    jwt_secret="{jwt-secret}"
-                )
-
-                """)
+ 
