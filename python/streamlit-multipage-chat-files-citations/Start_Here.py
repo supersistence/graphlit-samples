@@ -88,7 +88,7 @@ with col1:
                 st.session_state['graphlit'] = graphlit
                 st.session_state['token'] = graphlit.token
 
-                st.switch_page("pages/1_Upload_Files.py")
+                st.switch_page("pages/2_Chat_With_Files.py")
             else:
                 st.error("Please fill in all the connection information.")
 
