@@ -96,5 +96,9 @@ with col1:
 
 with col2:        
     st.markdown("**Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
+    st.image(
+            "https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/6/2017/11/04133712/waterfall.jpg",
+            width=400, # Manually Adjust the width of the image as per requirement
+        )
 
  
