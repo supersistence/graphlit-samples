@@ -322,3 +322,35 @@ table {
     
     # Display the table in Streamlit using Markdown
     st.markdown(markdown_table, unsafe_allow_html=True)
+
+def query_contents(filter):
+    """
+    Perform a GraphQL query to get contents.
+
+    Args:
+    filter (dict): The filter to apply to the query.
+
+    Returns:
+    list: A list of content results.
+    """
+    query = """
+    query QueryContents($filter: ContentFilter!) {
+      contents(filter: $filter) {
+        results {
+          name
+          fileExtension
+        }
+      }
+    }
+    """
+
+    url = "https://your-graphql-endpoint.com/graphql"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+    }
+
+    response = requests.post(url, json={'query': query, 'variables': {'filter': filter}}, headers=headers)
+    data = response.json()
+    results = data.get('data', {}).get('contents', {}).get('results', [])
+    return results
