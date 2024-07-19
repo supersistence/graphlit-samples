@@ -1,5 +1,6 @@
 import streamlit as st
 from components import header, sidebar, session_state
+from helpers import query_contents
 from streamlit_extras.stylable_container import stylable_container
 from graphlit import Graphlit
 import json
@@ -100,5 +101,37 @@ with col2:
             "https://images.squarespace-cdn.com/content/v1/5e3885654a153a6ef84e6c9c/1653003266864-VIGG314YMEN3YTAZDR93/SUPERSISTENCE%2Blogo.jpg",
             width=150, # Manually Adjust the width of the image as per requirement
         )
+    def display_table():
+    filter = {
+        # Define your filter criteria here
+    }
 
- 
+    results = query_contents(filter)
+
+    if results:
+        table_data = []
+        for result in results:
+            table_data.append([
+                result.get('name'),
+                result.get('fileExtension')
+            ])
+
+        headers = ["Name", "File Extension"]
+
+        st.title("Query Results")
+        st.table(table_data)
+
+        # Alternatively, you can use st.dataframe for more interactive tables
+        # import pandas as pd
+        # df = pd.DataFrame(table_data, columns=headers)
+        # st.dataframe(df)
+    else:
+        st.write("No results found.")
+
+if __name__ == "__main__":
+    display_table()
+
+
+
+
+
