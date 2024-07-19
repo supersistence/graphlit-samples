@@ -1,6 +1,6 @@
 import streamlit as st
 from components import header, sidebar, session_state
-from helpers import query_contents
+from other.helpers import query_contents
 from streamlit_extras.stylable_container import stylable_container
 from graphlit import Graphlit
 import json
