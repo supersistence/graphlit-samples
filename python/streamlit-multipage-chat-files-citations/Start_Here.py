@@ -18,7 +18,7 @@ config = load_config()
 
 st.set_page_config(
     page_title="Hawaii Farm Data Chat",
-    page_icon=":material/agriculture:",
+    page_icon="https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/hi_data_logo_dalle.png",
     layout="wide"
 )
 
