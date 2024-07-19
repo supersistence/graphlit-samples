@@ -337,7 +337,12 @@ def query_contents(filter):
     query QueryContents($filter: ContentFilter!) {
       contents(filter: $filter) {
         results {
+          id
           name
+          state
+          uri
+          text
+          fileName
           fileExtension
         }
       }
