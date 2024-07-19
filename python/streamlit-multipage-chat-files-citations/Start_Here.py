@@ -17,7 +17,7 @@ def load_config():
 config = load_config()
 
 st.set_page_config(
-    page_title="Graphlit Demo Application",
+    page_title="Hawaii Farm Data Chat",
     page_icon="💡",
     layout="wide"
 )
