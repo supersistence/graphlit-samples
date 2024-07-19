@@ -18,7 +18,7 @@ config = load_config()
 
 st.set_page_config(
     page_title="Hawaii Farm Data Chat",
-    page_icon="💡",
+    page_icon=":material/agriculture:",
     layout="wide"
 )
 
