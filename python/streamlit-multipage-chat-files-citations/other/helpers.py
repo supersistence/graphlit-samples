@@ -349,7 +349,7 @@ def query_contents(filter):
     }
     """
 
-    url = "https://your-graphql-endpoint.com/graphql"
+    url = "https://data-scus.graphlit.io/api/v1/graphql"
     headers = {
         "Content-Type": "application/json",
         "Authorization": "Bearer YOUR_ACCESS_TOKEN"
