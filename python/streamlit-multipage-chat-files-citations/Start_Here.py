@@ -25,11 +25,14 @@ st.set_page_config(
 
 # Initialize session state if not already set
 if 'organization_id' not in st.session_state:
-    st.session_state['organization_id'] = config.get('organization_id', '')
+    #st.session_state['organization_id'] = config.get('organization_id', '')
+    st.session_state['organization_id'] = st.secrets["organization_id"]
 if 'environment_id' not in st.session_state:
-    st.session_state['environment_id'] = config.get('environment_id', '')
+    #st.session_state['environment_id'] = config.get('environment_id', '')
+    st.session_state['organization_id'] = st.secrets["environment_id"]
 if 'jwt_secret' not in st.session_state:
-    st.session_state['jwt_secret'] = config.get('jwt_secret', '')
+    #st.session_state['jwt_secret'] = config.get('jwt_secret', '')
+    st.session_state['organization_id'] = st.secrets["jwt_secret"]
 
 session_state.reset_session_state()
 sidebar.create_sidebar()
