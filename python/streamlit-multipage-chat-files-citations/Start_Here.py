@@ -100,17 +100,17 @@ with col1:
             st.markdown("**Python SDK code example:**")
 
 with col2:        
-    st.markdown("**Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
+    st.markdown("**The Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
     
     # Fetch the count of contents
-    filter = {
+    #filter = {
                 # Your filter here
-            }
-    count = query_contents_count(filter)
-    if count is not None:
-        st.markdown(f"**{count} Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
-    else:
-        st.error("Failed to retrieve the count of contents.")
+    #        }
+    #count = query_contents_count(filter)
+    #if count is not None:
+    #    st.markdown(f"**{count} Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
+    #else:
+    #    st.error("Failed to retrieve the count of contents.")
         
     #count = query_contents_count(filter)
     #if count is not None:
@@ -136,6 +136,7 @@ with col2:
                     })
 
                 df = pd.DataFrame(table_data)
+                df.reset_index(drop=True, inplace=True)
                 st.table(df)  # Display the table without indices
                 #st.table(table_data)  # Display the table
             else:
