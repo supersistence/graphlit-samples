@@ -11,5 +11,5 @@ def create_header():
     
     with col2:
         st.title("Hawaii Farm Chat")
-        st.header('Harvest insights with research-backed citations.', divider='rainbow')
+        st.subheader('Harvest insights with research-backed citations.', divider='rainbow')
 
