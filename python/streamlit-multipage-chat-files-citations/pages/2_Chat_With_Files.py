@@ -7,9 +7,16 @@ from graphlit_api import *
 # Reset session state
 session_state.reset_session_state()
 
+
 # Create sidebar and header
 sidebar.create_sidebar()
 header.create_header()
+
+st.set_page_config(
+    page_title="Hawaii Farm Data Chat",
+    page_icon="https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/hi_data_logo_dalle.png",
+    layout="wide"
+)
 
 # Set content_done to True for testing purposes
 st.session_state['content_done'] = True
@@ -48,10 +55,11 @@ else:
                     # Render assistant message
                     st.markdown(message)
 
-                    # Render citations
-                    if citations:
-                        helpers.render_citations(citations)
+                    
     with col2:
         st.markdown("**Enter your questions and get a response with citations from the research database**")
-        
+
+        # Render citations
+        if citations:
+            helpers.render_citations(citations)
 
