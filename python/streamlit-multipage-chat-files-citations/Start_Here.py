@@ -100,7 +100,7 @@ with col1:
             st.markdown("**Python SDK code example:**")
 
 with col2:        
-    st.markdown("**The Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
+    st.markdown("**The following Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
     
     # Fetch the count of contents
     #filter = {
