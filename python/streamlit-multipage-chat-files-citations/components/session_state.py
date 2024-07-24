@@ -3,11 +3,14 @@ import streamlit as st
 def reset_session_state():
     # required: global session state
     if 'environment_id' not in st.session_state:
-        st.session_state['environment_id'] = ""
+        #st.session_state['environment_id'] = ""
+        st.session_state['organization_id'] = st.secrets["environment_id"]
     if 'organization_id' not in st.session_state:
-        st.session_state['organization_id'] = ""
+        #st.session_state['organization_id'] = ""
+        st.session_state['organization_id'] = st.secrets["organization_id"]
     if 'jwt_secret' not in st.session_state:
-        st.session_state['jwt_secret'] = ""
+        #st.session_state['jwt_secret'] = ""
+        st.session_state['organization_id'] = st.secrets["jwt_secret"]
 
     if 'graphlit' not in st.session_state:
         st.session_state['graphlit'] = None
