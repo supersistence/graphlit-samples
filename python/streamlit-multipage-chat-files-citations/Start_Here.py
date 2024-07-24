@@ -117,8 +117,8 @@ with col2:
     #    st.write(f"Content count: {count}")
     #else:
    #     st.write("Query failed.")
-        
-        def display_table():
+
+    def display_table():
             filter = {
                 # Your filter here
             }
