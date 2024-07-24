@@ -426,7 +426,29 @@ def query_contents_count(filter):
 
     url = "https://data-scus.graphlit.io/api/v1/graphql"
 
-    # Create the JWT token
+    # Define the issuer and audience
+    issuer = "graphlit"
+    audience = "https://portal.graphlit.io"
+
+    # Specify the role (Owner, Contributor, Reader)
+    role = "Owner"
+
+    # Specify the expiration (one hour from now)
+    expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=1)
+
+    # Define the payload
+    payload = {
+        "https://graphlit.io/jwt/claims": {
+            "x-graphlit-environment-id": st.secrets["environment_id"],
+            "x-graphlit-organization-id": st.secrets["organization_id"],
+            "x-graphlit-role": role,
+        },
+        "exp": expiration,
+        "iss": issuer,
+        "aud": audience,
+    }
+
+    # Sign the JWT
     token = jwt.encode(payload, st.secrets["jwt_secret"], algorithm="HS256")
 
     headers = {
@@ -448,14 +470,4 @@ def query_contents_count(filter):
         st.error(f"Request failed: {e}")
         return None
 
-# Example usage (for testing purposes only, this would not run in the final app module directly)
-if __name__ == "__main__":
-    filter = {
-        # Your filter here
-    }
-    count = query_contents_count(filter)
-    if count is not None:
-        print(f"Content count: {count}")
-    else:
-        print("Query failed.")
 
