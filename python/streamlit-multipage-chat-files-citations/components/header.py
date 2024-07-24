@@ -10,5 +10,6 @@ def create_header():
         st.image("https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/hi_data_logo_dalle.png", width=128)
     
     with col2:
-        st.title("Hawaii Farm Data Dialog Graphlit Platform")
+        st.title("Hawaii Farm Chat")
+    st.header('Ask questions of recent agricultural research, get answers with citations.', divider='rainbow')
 
