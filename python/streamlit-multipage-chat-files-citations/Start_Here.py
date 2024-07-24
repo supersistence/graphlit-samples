@@ -137,7 +137,8 @@ with col2:
 
                 df = pd.DataFrame(table_data)
                 df.reset_index(drop=True, inplace=True)
-                st.table(df)  # Display the table without indices
+                st.dataframe(df, use_container_width=True)
+                #st.table(df)  # Display the table without indices
                 #st.table(table_data)  # Display the table
             else:
                 st.error("Failed to retrieve data or no contents found.")
