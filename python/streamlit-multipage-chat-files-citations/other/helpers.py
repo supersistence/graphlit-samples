@@ -406,3 +406,56 @@ def query_contents(filter):
     else:
         st.write("Query failed.")
 
+def query_contents_count(filter):
+    """
+    Perform a GraphQL query to get the count of contents.
+
+    Args:
+    filter (dict): The filter to apply to the query.
+
+    Returns:
+    int: The count of contents.
+    """
+    query = """
+    query QueryContents($filter: ContentFilter!) {
+      countContents {
+        count
+      }
+    }
+    """
+
+    url = "https://data-scus.graphlit.io/api/v1/graphql"
+
+    # Create the JWT token
+    token = create_jwt_token()
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    graphql_payload = {
+        'query': query,
+        'variables': {'filter': filter}
+    }
+
+    try:
+        response = requests.post(url, json=graphql_payload, headers=headers)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        data = response.json()
+        return data['data']['countContents']['count'] if 'data' in data and 'countContents' in data['data'] else None
+    except requests.exceptions.RequestException as e:
+        st.error(f"Request failed: {e}")
+        return None
+
+# Example usage (for testing purposes only, this would not run in the final app module directly)
+if __name__ == "__main__":
+    filter = {
+        # Your filter here
+    }
+    count = query_contents_count(filter)
+    if count is not None:
+        print(f"Content count: {count}")
+    else:
+        print("Query failed.")
+
