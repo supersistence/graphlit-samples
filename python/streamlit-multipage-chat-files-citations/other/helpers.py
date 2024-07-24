@@ -341,8 +341,11 @@ def query_contents(filter):
     query QueryContents($filter: ContentFilter!) {
       contents(filter: $filter) {
         results {
+          id
           name
-          fileExtension
+          format # eg PDF
+          formatName # eg Portable Document Format
+          fileExtension # eg .pdf
         }
       }
     }
