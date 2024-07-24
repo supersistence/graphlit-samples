@@ -104,34 +104,29 @@ with col2:
             "https://images.squarespace-cdn.com/content/v1/5e3885654a153a6ef84e6c9c/1653003266864-VIGG314YMEN3YTAZDR93/SUPERSISTENCE%2Blogo.jpg",
             width=150, # Manually Adjust the width of the image as per requirement
         )
+
     def display_table():
         filter = {
-            # Define your filter criteria here
+            # Your filter here
         }
     
         results = query_contents(filter)
     
-        if results:
+        if results and 'data' in results and 'contents' in results['data']:
+            contents = results['data']['contents']['results']
             table_data = []
-            for result in results:
-                table_data.append([
-                    result.get('name'),
-                    result.get('fileExtension')
-                ])
     
-            headers = ["Name", "File Extension"]
+            for result in contents:
+                table_data.append({
+                    'Name': result.get('name', 'N/A'),
+                    'Format': result.get('format', 'N/A')
+                })
     
-            st.title("Query Results")
-            st.table(table_data)
-    
-            # Alternatively, you can use st.dataframe for more interactive tables
-            # import pandas as pd
-            # df = pd.DataFrame(table_data, columns=headers)
-            # st.dataframe(df)
+            st.table(table_data)  # Display the table
         else:
-            st.write("No results found.")
-
-if __name__ == "__main__":
+            st.error("Failed to retrieve data or no contents found.")
+    
+    # Call display_table() in your Streamlit app
     display_table()
 
 
