@@ -7,12 +7,6 @@ session_state.reset_session_state()
 sidebar.create_sidebar()
 header.create_header()
 
-st.set_page_config(
-    page_title="Hawaii Farm Data Chat",
-    page_icon="https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/hi_data_logo_dalle.png",
-    layout="wide"
-)
-
 if st.session_state['token'] is None:
     st.info("💡 To get started, generate a token to connect to your Graphlit project.")
 else:
