@@ -15,5 +15,5 @@ def create_sidebar():
             """)
         st.image(
                 "https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/SUPERSISTENCE%2Blogo-Photoroom.png",
-                width=150, # Manually Adjust the width of the image as per requirement
+                width=250, # Manually Adjust the width of the image as per requirement
             )
