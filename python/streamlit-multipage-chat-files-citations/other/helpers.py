@@ -427,7 +427,7 @@ def query_contents_count(filter):
     url = "https://data-scus.graphlit.io/api/v1/graphql"
 
     # Create the JWT token
-    token = create_jwt_token()
+    token = jwt.encode(payload, st.secrets["jwt_secret"], algorithm="HS256")
 
     headers = {
         "Content-Type": "application/json",
