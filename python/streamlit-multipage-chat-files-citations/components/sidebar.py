@@ -2,6 +2,7 @@ import streamlit as st
 
 def create_sidebar():
     with st.sidebar:
+        st.markdown("Chat with any uploaded files, with citations.  Text extraction and OCR done with [Azure AI Document Intelligence](https://azure.microsoft.com/en-us/products/ai-services/ai-document-intelligence).  Chat completion uses the [Anthropic](https://www.anthropic.com) Claude 3 Haiku LLM.")
         st.info("""
                 ### ✅ Instructions
                 - **Step 1:** Start a chat session.
