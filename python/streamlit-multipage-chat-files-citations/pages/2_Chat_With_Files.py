@@ -19,13 +19,10 @@ st.session_state['content_done'] = True
 if st.session_state['token'] is None:
     st.info("💡 To get started, generate a token to connect to your Graphlit project.")
 else:
-    col1, col2 = st.columns(2)
-
-    with col1:
-        if "messages" not in st.session_state:
+    st.markdown("**Enter your questions and get a response with citations from the research database**") 
+    if "messages" not in st.session_state:
             st.session_state.messages = []
-
-        # Render previous messages
+    # Render previous messages
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
@@ -52,6 +49,4 @@ else:
                     # Render citations
                     if citations:
                         helpers.render_citations(citations)
-             
-    with col2:
-        st.markdown("**Enter your questions and get a response with citations from the research database**")
+        
