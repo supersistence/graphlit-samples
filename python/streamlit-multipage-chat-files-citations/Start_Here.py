@@ -1,6 +1,8 @@
 import streamlit as st
 from components import header, sidebar, session_state
 from other.helpers import query_contents
+from other.helpers import query_contents_count
+
 from streamlit_extras.stylable_container import stylable_container
 from graphlit import Graphlit
 import json
@@ -100,11 +102,16 @@ with col1:
 
 with col2:        
     st.markdown("**Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
-    st.image(
-            "https://images.squarespace-cdn.com/content/v1/5e3885654a153a6ef84e6c9c/1653003266864-VIGG314YMEN3YTAZDR93/SUPERSISTENCE%2Blogo.jpg",
-            width=150, # Manually Adjust the width of the image as per requirement
-        )
-
+    
+    filter = {
+    # Your filter here
+}
+count = query_contents_count(filter)
+if count is not None:
+    st.write(f"Content count: {count}")
+else:
+    st.write("Query failed.")
+    
     def display_table():
         filter = {
             # Your filter here
@@ -128,6 +135,11 @@ with col2:
     
     # Call display_table() in your Streamlit app
     display_table()
+
+    st.image(
+                "https://images.squarespace-cdn.com/content/v1/5e3885654a153a6ef84e6c9c/1653003266864-VIGG314YMEN3YTAZDR93/SUPERSISTENCE%2Blogo.jpg",
+                width=150, # Manually Adjust the width of the image as per requirement
+            )
 
 
 
