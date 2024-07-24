@@ -13,3 +13,7 @@ def create_sidebar():
             [Review the documents and datasets](https://www.zotero.org/groups/5591103/hi_farm_studies/library)      
             [More information](https://www.graphlit.com)      
             """)
+        st.image(
+                "https://images.squarespace-cdn.com/content/v1/5e3885654a153a6ef84e6c9c/1653003266864-VIGG314YMEN3YTAZDR93/SUPERSISTENCE%2Blogo.jpg",
+                width=150, # Manually Adjust the width of the image as per requirement
+            )
