@@ -114,7 +114,7 @@ with col2:
         st.error("Failed to retrieve the count of contents.")
     count = query_contents_count(filter)
     #if count is not None:
-        st.write(f"Content count: {count}")
+    #    st.write(f"Content count: {count}")
     #else:
    #     st.write("Query failed.")
         
