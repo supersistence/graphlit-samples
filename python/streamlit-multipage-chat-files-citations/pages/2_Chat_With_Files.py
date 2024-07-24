@@ -27,7 +27,7 @@ else:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
 
-        if user_prompt := st.chat_input("Ask me anything about your content.", key="chat_input"):
+    if user_prompt := st.chat_input("Ask me anything about your content.", key="chat_input"):
             st.session_state.messages.append({"role": "user", "content": user_prompt})
             
             # Render user prompt
