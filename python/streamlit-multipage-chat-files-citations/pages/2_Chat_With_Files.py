@@ -49,11 +49,9 @@ else:
                     # Render assistant message
                     st.markdown(message)
 
-                    
+                    # Render citations
+                    if citations:
+                        helpers.render_citations(citations)
+             
     with col2:
         st.markdown("**Enter your questions and get a response with citations from the research database**")
-
-        # Render citations
-        if citations:
-            helpers.render_citations(citations)
-
