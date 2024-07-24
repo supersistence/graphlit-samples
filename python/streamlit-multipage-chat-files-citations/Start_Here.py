@@ -106,13 +106,13 @@ with col2:
     filter = {
                 # Your filter here
             }
-    
     count = query_contents_count(filter)
     if count is not None:
         st.markdown(f"**{count} Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
     else:
         st.error("Failed to retrieve the count of contents.")
-    count = query_contents_count(filter)
+        
+    #count = query_contents_count(filter)
     #if count is not None:
     #    st.write(f"Content count: {count}")
     #else:
@@ -143,9 +143,3 @@ with col2:
         
     # Call display_table() in your Streamlit app
     display_table()
-
-
-
-
-
-
