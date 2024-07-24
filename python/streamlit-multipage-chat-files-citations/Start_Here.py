@@ -103,38 +103,38 @@ with col1:
 with col2:        
     st.markdown("**Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
     
-    filter = {
-    # Your filter here
-}
-count = query_contents_count(filter)
-if count is not None:
-    st.write(f"Content count: {count}")
-else:
-    st.write("Query failed.")
-    
-    def display_table():
         filter = {
-            # Your filter here
-        }
-    
-        results = query_contents(filter)
-    
-        if results and 'data' in results and 'contents' in results['data']:
-            contents = results['data']['contents']['results']
-            table_data = []
-    
-            for result in contents:
-                table_data.append({
-                    'Name': result.get('name', 'N/A'),
-                    'Format': result.get('format', 'N/A')
-                })
-    
-            st.table(table_data)  # Display the table
-        else:
-            st.error("Failed to retrieve data or no contents found.")
-    
-    # Call display_table() in your Streamlit app
-    display_table()
+        # Your filter here
+    }
+    count = query_contents_count(filter)
+    if count is not None:
+        st.write(f"Content count: {count}")
+    else:
+        st.write("Query failed.")
+        
+        def display_table():
+            filter = {
+                # Your filter here
+            }
+        
+            results = query_contents(filter)
+        
+            if results and 'data' in results and 'contents' in results['data']:
+                contents = results['data']['contents']['results']
+                table_data = []
+        
+                for result in contents:
+                    table_data.append({
+                        'Name': result.get('name', 'N/A'),
+                        'Format': result.get('format', 'N/A')
+                    })
+        
+                st.table(table_data)  # Display the table
+            else:
+                st.error("Failed to retrieve data or no contents found.")
+        
+        # Call display_table() in your Streamlit app
+        display_table()
 
     st.image(
                 "https://images.squarespace-cdn.com/content/v1/5e3885654a153a6ef84e6c9c/1653003266864-VIGG314YMEN3YTAZDR93/SUPERSISTENCE%2Blogo.jpg",
