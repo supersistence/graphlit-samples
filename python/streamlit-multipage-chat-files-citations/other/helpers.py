@@ -2,6 +2,9 @@ import streamlit as st
 import asyncio
 from typing import Optional, List
 from graphlit_api import *
+import requests
+import jwt
+import datetime
 
 def run_async_task(async_func, *args):
     """
@@ -323,6 +326,7 @@ table {
     # Display the table in Streamlit using Markdown
     st.markdown(markdown_table, unsafe_allow_html=True)
 
+
 def query_contents(filter):
     """
     Perform a GraphQL query to get contents.
@@ -337,12 +341,7 @@ def query_contents(filter):
     query QueryContents($filter: ContentFilter!) {
       contents(filter: $filter) {
         results {
-          id
           name
-          state
-          uri
-          text
-          fileName
           fileExtension
         }
       }
@@ -350,12 +349,57 @@ def query_contents(filter):
     """
 
     url = "https://data-scus.graphlit.io/api/v1/graphql"
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+
+    # Define the issuer and audience
+    issuer = "graphlit"
+    audience = "https://portal.graphlit.io"
+
+    # Specify the role (Owner, Contributor, Reader)
+    role = "Owner"
+
+    # Specify the expiration (one hour from now)
+    expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=1)
+
+    # Define the payload
+    payload = {
+        "https://graphlit.io/jwt/claims": {
+            "x-graphlit-environment-id": st.secrets["environment_id"],
+            "x-graphlit-organization-id": st.secrets["organization_id"],
+            "x-graphlit-role": role,
+        },
+        "exp": expiration,
+        "iss": issuer,
+        "aud": audience,
     }
 
-    response = requests.post(url, json={'query': query, 'variables': {'filter': filter}}, headers=headers)
-    data = response.json()
-    results = data.get('data', {}).get('contents', {}).get('results', [])
-    return results
+    # Sign the JWT
+    token = jwt.encode(payload, st.secrets["jwt_secret"], algorithm="HS256")
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    graphql_payload = {
+        'query': query,
+        'variables': {'filter': filter}
+    }
+
+    try:
+        response = requests.post(url, json=graphql_payload, headers=headers)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        st.error(f"Request failed: {e}")
+        return None
+
+    # Example usage
+    filter = {
+        # Your filter here
+    }
+    results = query_contents(filter)
+    if results:
+        st.write("Query succeeded:", results)
+    else:
+        st.write("Query failed.")
+
