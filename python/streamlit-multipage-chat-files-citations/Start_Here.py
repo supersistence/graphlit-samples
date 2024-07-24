@@ -139,8 +139,8 @@ with col2:
             else:
                 st.error("Failed to retrieve data or no contents found.")
         
-        # Call display_table() in your Streamlit app
-        display_table()
+    # Call display_table() in your Streamlit app
+    display_table()
 
 
 
