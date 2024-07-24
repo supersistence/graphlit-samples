@@ -134,8 +134,10 @@ with col2:
                         'Name': result.get('name', 'N/A'),
                         'Format': result.get('format', 'N/A')
                     })
-        
-                st.table(table_data)  # Display the table
+
+                df = pd.DataFrame(table_data)
+                st.table(df)  # Display the table without indices
+                #st.table(table_data)  # Display the table
             else:
                 st.error("Failed to retrieve data or no contents found.")
         
