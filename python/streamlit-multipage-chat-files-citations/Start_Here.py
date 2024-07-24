@@ -103,7 +103,7 @@ with col1:
 with col2:        
     st.markdown("**Hawaii farm and agricultural research resources have been added to a database that can be queried.**")
     
-        filter = {
+    filter = {
         # Your filter here
     }
     count = query_contents_count(filter)
