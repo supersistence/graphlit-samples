@@ -17,10 +17,8 @@
       ]
     }
   },
-  "updateContentCommand": "[ -f packages.txt ] && sudo apt update && sudo apt upgrade -y && sudo xargs apt install -y <packages.txt; [ -f requirements.txt ] && pip3 install --user -r requirements.txt; pip3 install --user streamlit; echo '✅ Packages installed and Requirements met'",
-  "postAttachCommand": {
-    "server": "streamlit run python/streamlit-multipage-chat-files-citations/Start_Here.py --server.enableCORS false --server.enableXsrfProtection false"
-  },
+  "updateContentCommand": "if [ -f packages.txt ]; then sudo apt update && sudo apt upgrade -y && sudo xargs -a packages.txt apt install -y; fi && if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi && pip3 install streamlit && echo '✅ Packages installed and Requirements met'",
+  "postAttachCommand": "streamlit run python/streamlit-multipage-chat-files-citations/Start_Here.py --server.enableCORS false --server.enableXsrfProtection false",
   "portsAttributes": {
     "8501": {
       "label": "Application",

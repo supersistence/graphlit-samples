@@ -3,6 +3,12 @@ from other import helpers
 from components import upload, header, sidebar, session_state
 from streamlit_extras.stylable_container import stylable_container
 
+st.set_page_config(
+    page_title="Hawaii Farm Data Chat - Upload",
+    page_icon="https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/hi_data_logo_dalle.png",
+    layout="wide"
+)
+
 session_state.reset_session_state()
 sidebar.create_sidebar()
 header.create_header()
