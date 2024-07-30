@@ -149,3 +149,36 @@ async def prompt_conversation(prompt):
     except GraphQLClientError as e:
         return None, None, str(e)
     
+async def query_contents_graph(search):
+
+    graphlit: Optional[Graphlit] = st.session_state['graphlit']
+
+
+
+    try:
+
+        response = await graphlit.client.query_contents_graph(
+
+            filter=ContentFilter(
+
+                search=search,
+
+                searchType=SearchTypes.VECTOR
+
+            ),
+
+            # NOTE: required, to return the graph, even if no observable filtering
+
+            graph=ContentGraphInput(                
+
+            )
+
+        )
+
+
+
+        return response.contents.graph, None
+
+    except GraphQLClientError as e:
+
+        return None, str(e)
