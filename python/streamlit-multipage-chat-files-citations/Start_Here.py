@@ -7,11 +7,14 @@ from graphlit import Graphlit
 import json
 import os
 
+# set_page_config() can only be called once per app page, and must be called as the first Streamlit command in your script.
 st.set_page_config(
     page_title="Hawaii Farm Data Chat",
     page_icon="https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/hi_data_logo_dalle.png",
-    layout="wide"
+    layout="wide"#,
+    # menu_options={"About": "your custom text"}
 )
+
 def load_config():
     # Construct the full path to the config file
     config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
@@ -22,6 +25,20 @@ def load_config():
 
 # Load the configuration
 config = load_config()
+
+# Add custom CSS to hide the GitHub icon
+st.markdown(
+    """
+    <style>
+    .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
+    .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137,
+    .viewerBadge_text__1JaDK {
+        display: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 
