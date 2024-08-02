@@ -9,7 +9,8 @@ def create_sidebar():
                 - **Step 2:** Enter a prompt to ask about the files using [Anthropic](https://www.anthropic.com) Claude 3 Haiku LLM.
                 - **Step 3:** Browse existing files or select other files to upload and ingest.
                 """)   
-        st.image(
-                "https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/SUPERSISTENCE%2Blogo-Photoroom.png",
-                width=250, # Manually Adjust the width of the image as per requirement
-            )
+        # st.image(
+        #         "https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/SUPERSISTENCE%2Blogo-Photoroom.png",
+        #         width=250, # Manually Adjust the width of the image as per requirement
+        #     )
+        st.markdown("[![Foo](https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/SUPERSISTENCE%2Blogo-Photoroom.png)](https://supersistence.org/)")
