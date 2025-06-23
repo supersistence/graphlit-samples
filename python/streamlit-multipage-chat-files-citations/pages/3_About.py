@@ -9,6 +9,23 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+    <div style="
+        background-color: #ffeaea;
+        border-bottom: 1px solid #ffb3b3;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #990000;
+        text-align: center;
+        z-index: 9999;
+    ">
+        ⚠️ This tool was developed and run during Summer 2024 and is no longer functioning.
+        It remains online for archival and reference purposes only.
+    </div>
+""", unsafe_allow_html=True)
+
+
 # Create sidebar and header
 session_state.reset_session_state()
 sidebar.create_sidebar()
