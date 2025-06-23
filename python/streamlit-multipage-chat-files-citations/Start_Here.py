@@ -15,6 +15,23 @@ st.set_page_config(
     # menu_options={"About": "your custom text"}
 )
 
+st.markdown("""
+    <div style="
+        background-color: #ffeaea;
+        border-bottom: 1px solid #ffb3b3;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #990000;
+        text-align: center;
+        z-index: 9999;
+    ">
+        ⚠️ This tool was developed and run during Summer 2024 and is no longer functioning. The application remains online for archival and reference purposes only.
+    </div>
+""", unsafe_allow_html=True)
+
+
+
 def load_config():
     # Construct the full path to the config file
     config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
