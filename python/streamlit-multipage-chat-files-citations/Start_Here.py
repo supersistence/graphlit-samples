@@ -9,7 +9,7 @@ import os
 
 # set_page_config() can only be called once per app page, and must be called as the first Streamlit command in your script.
 st.set_page_config(
-    page_title="Hawaii Farm Data Chats",
+    page_title="Hawaii Farm Data Chat",
     page_icon="https://raw.githubusercontent.com/supersistence/graphlit-samples/main/python/streamlit-multipage-chat-files-citations/components/hi_data_logo_dalle.png",
     layout="wide"#,
     # menu_options={"About": "your custom text"}
@@ -27,12 +27,13 @@ st.markdown(
         text-align: center;
         z-index: 9999;
     ">
-        ⚠️ This tool was developed and run during Summer 2024 and is no longer functioning. The application remains online for archival and reference purposes only.
+        ⚠️ This tool was developed and run during Summer 2024 and is no longer functioning.<br/>
+        The application remains online for archival and reference purposes only.<br/><br/>
+        📬 Interested in a similar tool? Contact <a href="mailto:hunter@supersistence.org" style="color:#990000; text-decoration: underline;">hunter@supersistence.org</a>
     </div>
     """, 
     unsafe_allow_html=True
 )
-
 
 
 def load_config():
