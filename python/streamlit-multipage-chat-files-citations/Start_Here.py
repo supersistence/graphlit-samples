@@ -28,7 +28,7 @@ st.markdown(
         z-index: 9999;
     ">
         ⚠️ This tool was developed and run during Summer 2024 and is no longer functioning.<br/>
-        The application remains online for archival and reference purposes only.<br/><br/>
+        The application remains online for archival and reference purposes only.<br/>
         📬 Interested in a similar tool? Contact <a href="mailto:hunter@supersistence.org" style="color:#990000; text-decoration: underline;">hunter@supersistence.org</a>
     </div>
     """, 
